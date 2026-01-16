@@ -1,0 +1,52 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import HappyMealBox from '../components/HappyMealBox.jsx';
+import ExploreButton from '../components/ExploreButton.astro';
+import Details from '../components/Details.astro';
+
+// Use a placeholder Spline URL or leave undefined to show the dashed placeholder
+// const SPLINE_SCENE_URL = "https://prod.spline.design/YOUR_SCENE_ID/scene.splinecode";
+---
+
+<Layout>
+	<main>
+        <Header />
+        
+        <section class="hero">
+            <div class="canvas-container">
+                <HappyMealBox client:load /> 
+            </div>
+            <ExploreButton />
+        </section>
+
+        <Details />
+	</main>
+</Layout>
+
+<style>
+	main {
+		width: 100%;
+        min-height: 100vh;
+	}
+
+    .hero {
+        position: relative;
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+    }
+
+    .canvas-container {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1; /* Behind header (100) and button (10) */
+    }
+</style>

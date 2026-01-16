@@ -1,0 +1,100 @@
+---
+---
+
+<section id="details" class="details-section">
+    <div class="content">
+        <h2>Event Details</h2>
+        
+        <div class="info-grid">
+            <div class="info-item">
+                <span class="label">Date</span>
+                <span class="value">Coming Soon</span>
+            </div>
+            <div class="info-item">
+                <span class="label">Time</span>
+                <span class="value">TBA</span>
+            </div>
+            <div class="info-item">
+                <span class="label">Place</span>
+                <span class="value">Secret Location</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    .details-section {
+        min-height: 100vh;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #0f0f0f; /* Slightly lighter than main bg */
+        position: relative;
+        padding: 2rem;
+    }
+
+    .content {
+        text-align: center;
+        max-width: 800px;
+        width: 100%;
+    }
+
+    h2 {
+        font-size: 3rem;
+        margin-bottom: 4rem;
+        background: linear-gradient(to right, #fff, #999);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    .info-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
+        width: 100%;
+    }
+
+    .info-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 2rem;
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        border-radius: 12px;
+        background: rgba(255, 255, 255, 0.02);
+        transition: transform 0.3s ease;
+    }
+
+    .info-item:hover {
+        transform: translateY(-5px);
+        background: rgba(255, 255, 255, 0.05);
+    }
+
+    .label {
+        font-family: var(--font-body);
+        font-size: 0.9rem;
+        text-transform: uppercase;
+        letter-spacing: 0.2em;
+        color: rgba(255, 255, 255, 0.6);
+    }
+
+    .value {
+        font-family: var(--font-heading);
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: #ffffff;
+    }
+
+    @media (max-width: 768px) {
+        .info-grid {
+            grid-template-columns: 1fr;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+        }
+    }
+</style>

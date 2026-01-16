@@ -1,0 +1,65 @@
+---
+---
+
+<header class="header">
+    <nav class="nav-left">
+        <a href="/">Home</a>
+    </nav>
+    <div class="nav-center">
+        <span class="logo">UPB</span>
+    </div>
+    <nav class="nav-right">
+        <a href="#about">About Us</a>
+    </nav>
+</header>
+
+<style>
+    .header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1.5rem 3rem;
+        z-index: 100;
+        mix-blend-mode: difference; /* Ensures visibility over 3D background */
+        color: white; /* Fallback */
+    }
+
+    a {
+        text-decoration: none;
+        color: inherit;
+        font-weight: 500;
+        font-size: 1.1rem;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        transition: opacity 0.3s ease;
+    }
+
+    a:hover {
+        opacity: 0.7;
+    }
+
+    .logo {
+        font-family: var(--font-heading);
+        font-weight: 700;
+        font-size: 2rem;
+        letter-spacing: 0.1em;
+    }
+    
+    @media (max-width: 768px) {
+        .header {
+            padding: 1rem 1.5rem;
+        }
+        
+        a {
+            font-size: 0.9rem;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+        }
+    }
+</style>
