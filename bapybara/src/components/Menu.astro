@@ -1,0 +1,168 @@
+---
+---
+
+<section id="menu" class="menu-section">
+    <div class="content">
+        <h2>The Menu</h2>
+        
+        <div class="menu-grid">
+            <div class="category">
+                <h3>Mains</h3>
+                <ul class="item-list">
+                    <li>
+                        <span class="item-name">The Bapyburger</span>
+                        <span class="item-desc">Double patty, secret capybara sauce</span>
+                    </li>
+                    <li>
+                        <span class="item-name">Chicken Yuzu Nuggets</span>
+                        <span class="item-desc">Citrus glazed, crispy coating</span>
+                    </li>
+                    <li>
+                        <span class="item-name">Mushroom Swiss Melt</span>
+                        <span class="item-desc">For the foraging friends</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="category">
+                <h3>Sides</h3>
+                <ul class="item-list">
+                    <li>
+                        <span class="item-name">Lotus Root Chips</span>
+                        <span class="item-desc">Lightly salted & cronchy</span>
+                    </li>
+                    <li>
+                        <span class="item-name">Onsen Egg Salad</span>
+                        <span class="item-desc">Creamy, dreamy, soft-boiled</span>
+                    </li>
+                    <li>
+                        <span class="item-name">Edamame Popcorn</span>
+                        <span class="item-desc">Spicy garlic seasoning</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="category">
+                <h3>Drinks</h3>
+                <ul class="item-list">
+                    <li>
+                        <span class="item-name">Yuzu Sparkling</span>
+                        <span class="item-desc">Refreshing citrus bubbles</span>
+                    </li>
+                    <li>
+                        <span class="item-name">Matcha Latte</span>
+                        <span class="item-desc">Iced or hot, oat milk option</span>
+                    </li>
+                    <li>
+                        <span class="item-name">Watermelon Splash</span>
+                        <span class="item-desc">Fresh juice, mint garnish</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    .menu-section {
+        min-height: 100vh;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #121212; /* Matching dark theme */
+        position: relative;
+        padding: 4rem 2rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.05); /* Separator from details */
+    }
+
+    .content {
+        max-width: 1200px;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    h2 {
+        font-size: 3rem;
+        margin-bottom: 4rem;
+        background: linear-gradient(to right, #fff, #aaa);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+    }
+
+    .menu-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
+        width: 100%;
+    }
+
+    .category {
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        border-radius: 16px;
+        padding: 2rem;
+        transition: transform 0.3s ease, background 0.3s ease;
+    }
+
+    .category:hover {
+        transform: translateY(-5px);
+        background: rgba(255, 255, 255, 0.05);
+    }
+
+    h3 {
+        font-family: var(--font-heading);
+        font-size: 1.5rem;
+        margin-bottom: 2rem;
+        color: #ffffff;
+        text-align: center;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        padding-bottom: 1rem;
+    }
+
+    .item-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    .item-list li {
+        display: flex;
+        flex-direction: column;
+        gap: 0.25rem;
+    }
+
+    .item-name {
+        font-family: var(--font-heading);
+        font-weight: 600;
+        font-size: 1.1rem;
+        color: #e0e0e0;
+    }
+
+    .item-desc {
+        font-family: var(--font-body);
+        font-size: 0.9rem;
+        color: rgba(255, 255, 255, 0.5);
+    }
+
+    @media (max-width: 900px) {
+        .menu-grid {
+            grid-template-columns: 1fr;
+            max-width: 500px;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+        }
+    }
+</style>

@@ -1,0 +1,199 @@
+---
+---
+
+<section id="about" class="about-section">
+    <div class="content">
+        <div class="info-block">
+            <h2>About Us</h2>
+            <p>
+                The University Program Board (UPB) is the primary programming organization on campus, properly dedicated to planning and executing a diverse array of events for the student body. From concerts and comedy shows to film screenings and traditional campus events, our mission is to enhance the university experience by providing high-quality entertainment and opportunities for student engagement.
+            </p>
+        </div>
+
+        <div class="committees-grid">
+            <!-- Committee Cards -->
+            <div class="card-container">
+                <div class="card">
+                    <div class="front"><h3>ID</h3></div>
+                    <div class="back"><p>Identity & Design</p></div>
+                </div>
+            </div>
+            <div class="card-container">
+                <div class="card">
+                    <div class="front"><h3>Info</h3></div>
+                    <div class="back"><p>Information Technology</p></div>
+                </div>
+            </div>
+            <div class="card-container">
+                <div class="card">
+                    <div class="front"><h3>Promo</h3></div>
+                    <div class="back"><p>Promotion & Marketing</p></div>
+                </div>
+            </div>
+            <div class="card-container">
+                <div class="card">
+                    <div class="front"><h3>Finance</h3></div>
+                    <div class="back"><p>Budget & Funding</p></div>
+                </div>
+            </div>
+            <div class="card-container">
+                <div class="card">
+                    <div class="front"><h3>On Campus</h3></div>
+                    <div class="back"><p>Student Center Events</p></div>
+                </div>
+            </div>
+            <div class="card-container">
+                <div class="card">
+                    <div class="front"><h3>Off Campus</h3></div>
+                    <div class="back"><p>Cleveland Excursions</p></div>
+                </div>
+            </div>
+            <div class="card-container">
+                <div class="card">
+                    <div class="front"><h3>Trips</h3></div>
+                    <div class="back"><p>Travel & Adventure</p></div>
+                </div>
+            </div>
+            <div class="card-container">
+                <div class="card">
+                    <div class="front"><h3>Thwing Tuesday</h3></div>
+                    <div class="back"><p>Weekly Fun & Food</p></div>
+                </div>
+            </div>
+            <div class="card-container">
+                <div class="card">
+                    <div class="front"><h3>Co-programming</h3></div>
+                    <div class="back"><p>Collaborative Events</p></div>
+                </div>
+            </div>
+            <div class="card-container">
+                <div class="card">
+                    <div class="front"><h3>Campus Engagement</h3></div>
+                    <div class="back"><p>Spirit & Traditions</p></div>
+                </div>
+            </div>
+            <div class="card-container">
+                <div class="card">
+                    <div class="front"><h3>Concerts</h3></div>
+                    <div class="back"><p>Live Music & Shows</p></div>
+                </div>
+            </div>
+            <div class="card-container">
+                <div class="card">
+                    <div class="front"><h3>Bootcamp</h3></div>
+                    <div class="back"><p>Leadership Training</p></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    .about-section {
+        min-height: 100vh;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #0d0d0d; /* Slightly different dark shade */
+        padding: 6rem 2rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .content {
+        max-width: 1200px;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 4rem;
+    }
+
+    .info-block {
+        text-align: center;
+        max-width: 800px;
+    }
+
+    h2 {
+        font-size: 3.5rem;
+        margin-bottom: 2rem;
+        background: linear-gradient(to right, #fff, #888);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+    }
+
+    p {
+        font-size: 1.1rem;
+        line-height: 1.6;
+        color: rgba(255, 255, 255, 0.8);
+    }
+
+    .committees-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 2rem;
+        width: 100%;
+    }
+
+    /* Flip Card Styles */
+    .card-container {
+        perspective: 1000px;
+        height: 150px;
+        cursor: pointer;
+    }
+
+    .card {
+        width: 100%;
+        height: 100%;
+        position: relative;
+        transform-style: preserve-3d;
+        transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        border-radius: 12px;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+    }
+
+    .card-container:hover .card {
+        transform: rotateY(180deg);
+    }
+
+    .front, .back {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        backface-visibility: hidden;
+        border-radius: 12px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 1rem;
+        text-align: center;
+    }
+
+    .front {
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .front h3 {
+        font-family: var(--font-heading);
+        font-size: 1.25rem;
+        color: #fff;
+        margin: 0;
+    }
+
+    .back {
+        background: #ffffff;
+        color: #000;
+        transform: rotateY(180deg);
+    }
+
+    .back p {
+        font-family: var(--font-body);
+        font-size: 1rem;
+        font-weight: 600;
+        color: #000;
+        margin: 0;
+    }
+</style>
