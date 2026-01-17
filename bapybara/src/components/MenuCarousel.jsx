@@ -36,8 +36,8 @@ export default function MenuCarousel({ title, items }) {
 
             <style>{`
                 .carousel-container {
-                    background: rgba(255, 255, 255, 0.03);
-                    border: 1px solid rgba(255, 255, 255, 0.05);
+                    background: rgba(255, 255, 255, 0.4); /* Glass effect for yellow bg */
+                    border: 1px solid rgba(0, 0, 0, 0.1);
                     border-radius: 16px;
                     padding: 2rem;
                     display: flex;
@@ -45,16 +45,17 @@ export default function MenuCarousel({ title, items }) {
                     align-items: center;
                     width: 100%;
                     min-height: 250px;
+                    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
                 }
 
                 h3 {
                     font-family: var(--font-heading, "Outfit", sans-serif);
                     font-size: 1.5rem;
                     margin-bottom: 2rem;
-                    color: #ffffff;
+                    color: #1a1a1a; /* Dark text */
                     text-transform: uppercase;
                     letter-spacing: 0.05em;
-                    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+                    border-bottom: 2px solid rgba(0, 0, 0, 0.1);
                     padding-bottom: 0.5rem;
                     width: 100%;
                     text-align: center;
@@ -76,46 +77,46 @@ export default function MenuCarousel({ title, items }) {
                     text-align: center;
                     gap: 0.5rem;
                     flex: 1;
-                    /* Animation keyframe could be added, but simple state switch works */
                 }
 
                 .item-name {
                     font-family: var(--font-heading, "Outfit", sans-serif);
                     font-weight: 600;
                     font-size: 1.25rem;
-                    color: #e0e0e0;
+                    color: #000000; /* Solid Black */
                 }
 
                 .item-desc {
                     font-family: var(--font-body, "Inter", sans-serif);
                     font-size: 0.95rem;
-                    color: rgba(255, 255, 255, 0.6);
-                    min-height: 3rem; /* maintain height if desc length varies */
+                    color: rgba(0, 0, 0, 0.7); /* Dark gray */
+                    min-height: 3rem;
                 }
 
                 .item-progress {
                     margin-top: 1rem;
                     font-size: 0.8rem;
-                    color: rgba(255, 255, 255, 0.3);
+                    color: rgba(0, 0, 0, 0.4);
                 }
 
                 .nav-btn {
                     background: none;
-                    border: 1px solid rgba(255, 255, 255, 0.1);
+                    border: 2px solid rgba(0, 0, 0, 0.1);
                     border-radius: 50%;
                     width: 40px;
                     height: 40px;
                     display: flex;
                     justify-content: center;
                     align-items: center;
-                    color: #ffffff;
+                    color: #1a1a1a;
                     cursor: pointer;
                     transition: all 0.3s ease;
                 }
 
                 .nav-btn:hover {
-                    background: rgba(255, 255, 255, 0.1);
+                    background: rgba(0, 0, 0, 0.05);
                     transform: scale(1.1);
+                    border-color: rgba(0, 0, 0, 0.3);
                 }
             `}</style>
         </div>

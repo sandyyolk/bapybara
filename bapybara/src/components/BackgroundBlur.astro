@@ -1,0 +1,44 @@
+<div class="scroll-blur-bg"></div>
+
+<style>
+    .scroll-blur-bg {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        z-index: -1;
+        background: radial-gradient(circle at 50% 50%, 
+            rgba(255, 100, 100, 0.1), 
+            rgba(100, 100, 255, 0.1), 
+            rgba(100, 255, 100, 0.1)
+        );
+        background-size: 400% 400%;
+        filter: blur(80px);
+        opacity: 0.6;
+        pointer-events: none;
+        transition: filter 0.5s ease;
+        animation: gradient-shift 20s ease infinite;
+    }
+
+    @keyframes gradient-shift {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+    }
+</style>
+
+<script>
+    const bg = document.querySelector('.scroll-blur-bg');
+    if (bg) {
+        window.addEventListener('scroll', () => {
+            const scrollPercent = window.scrollY / (document.body.scrollHeight - window.innerHeight);
+            // Dynamic hue rotation based on scroll
+            const hue = scrollPercent * 360;
+            // Dynamic blur intensity
+             const blurAmount = 60 + (Math.sin(scrollPercent * Math.PI) * 40); // 60px to 100px blur
+
+            bg.style.filter = `blur(${blurAmount}px) hue-rotate(${hue}deg)`;
+        });
+    }
+</script>

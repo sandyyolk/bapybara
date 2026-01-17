@@ -1,7 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { createPortal } from 'react-dom';
 
 export default function NavMenu() {
     const [isOpen, setIsOpen] = useState(false);
+    const [mounted, setMounted] = useState(false);
+
+    useEffect(() => {
+        setMounted(true);
+        return () => setMounted(false);
+    }, []);
 
     const toggleMenu = () => {
         setIsOpen(!isOpen);
@@ -11,54 +18,15 @@ export default function NavMenu() {
         setIsOpen(false);
     };
 
-    return (
-        <>
-            <button
-                className={`hamburger-btn ${isOpen ? 'open' : ''}`}
-                onClick={toggleMenu}
-                aria-label="Toggle Menu"
-            >
-                <span className="line"></span>
-                <span className="line"></span>
-            </button>
-
-            <div className={`menu-overlay ${isOpen ? 'open' : ''}`}>
-                <nav className="menu-links">
-                    <a href="#details" onClick={closeMenu}>Event Info</a>
-                    <a href="#menu" onClick={closeMenu}>Menu</a>
-                    <a href="#about" onClick={closeMenu}>About Us</a>
-                </nav>
-            </div>
-
+    // Portal content
+    const overlay = mounted ? createPortal(
+        <div className={`menu-overlay ${isOpen ? 'open' : ''}`}>
+            <nav className="menu-links">
+                <a href="#details" onClick={closeMenu}>Event Info</a>
+                <a href="#menu" onClick={closeMenu}>Menu</a>
+                <a href="#about" onClick={closeMenu}>About Us</a>
+            </nav>
             <style>{`
-                .hamburger-btn {
-                    background: none;
-                    border: none;
-                    cursor: pointer;
-                    display: flex;
-                    flex-direction: column;
-                    gap: 6px;
-                    z-index: 200;
-                    position: relative;
-                    padding: 10px;
-                }
-
-                .line {
-                    width: 30px;
-                    height: 2px;
-                    background-color: #ffffff;
-                    transition: all 0.3s ease;
-                }
-
-                /* Hamburger Animation */
-                .hamburger-btn.open .line:nth-child(1) {
-                    transform: rotate(45deg) translate(5px, 6px);
-                }
-
-                .hamburger-btn.open .line:nth-child(2) {
-                    transform: rotate(-45deg) translate(5px, -6px);
-                }
-
                 /* Menu Overlay */
                 .menu-overlay {
                     position: fixed;
@@ -66,9 +34,9 @@ export default function NavMenu() {
                     left: 0;
                     width: 100vw;
                     height: 100vh;
-                    background-color: rgba(0, 0, 0, 0.98);
-                    backdrop-filter: blur(10px);
-                    z-index: 150;
+                    background-color: rgba(0, 0, 0, 0.5); /* 50% opacity */
+                    backdrop-filter: blur(5px);
+                    z-index: 90;
                     display: flex;
                     justify-content: center;
                     align-items: center;
@@ -102,6 +70,52 @@ export default function NavMenu() {
                 .menu-links a:hover {
                     color: #ccc;
                     transform: scale(1.05);
+                }
+            `}</style>
+        </div>,
+        document.body
+    ) : null;
+
+    return (
+        <>
+            <button
+                className={`hamburger-btn ${isOpen ? 'open' : ''}`}
+                onClick={toggleMenu}
+                aria-label="Toggle Menu"
+            >
+                <span className="line"></span>
+                <span className="line"></span>
+            </button>
+
+            {overlay}
+
+            <style>{`
+                .hamburger-btn {
+                    background: none;
+                    border: none;
+                    cursor: pointer;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 6px;
+                    z-index: 200;
+                    position: relative;
+                    padding: 10px;
+                }
+
+                .line {
+                    width: 30px;
+                    height: 2px;
+                    background-color: #ffffff;
+                    transition: all 0.3s ease;
+                }
+
+                /* Hamburger Animation */
+                .hamburger-btn.open .line:nth-child(1) {
+                    transform: rotate(45deg) translate(5px, 6px);
+                }
+
+                .hamburger-btn.open .line:nth-child(2) {
+                    transform: rotate(-45deg) translate(5px, -6px);
                 }
             `}</style>
         </>
