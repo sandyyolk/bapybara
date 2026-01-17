@@ -66,7 +66,7 @@ export default function NavMenu() {
                     left: 0;
                     width: 100vw;
                     height: 100vh;
-                    background-color: rgba(0, 0, 0, 0.95);
+                    background-color: rgba(0, 0, 0, 0.98);
                     backdrop-filter: blur(10px);
                     z-index: 150;
                     display: flex;

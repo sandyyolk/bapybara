@@ -1,4 +1,23 @@
 ---
+import MenuCarousel from './MenuCarousel.jsx';
+
+const mains = [
+    { name: "The Bapyburger", desc: "Double patty, secret capybara sauce" },
+    { name: "Chicken Yuzu Nuggets", desc: "Citrus glazed, crispy coating" },
+    { name: "Mushroom Swiss Melt", desc: "For the foraging friends" }
+];
+
+const sides = [
+    { name: "Lotus Root Chips", desc: "Lightly salted & cronchy" },
+    { name: "Onsen Egg Salad", desc: "Creamy, dreamy, soft-boiled" },
+    { name: "Edamame Popcorn", desc: "Spicy garlic seasoning" }
+];
+
+const drinks = [
+    { name: "Yuzu Sparkling", desc: "Refreshing citrus bubbles" },
+    { name: "Matcha Latte", desc: "Iced or hot, oat milk option" },
+    { name: "Watermelon Splash", desc: "Fresh juice, mint garnish" }
+];
 ---
 
 <section id="menu" class="menu-section">
@@ -6,59 +25,9 @@
         <h2>The Menu</h2>
         
         <div class="menu-grid">
-            <div class="category">
-                <h3>Mains</h3>
-                <ul class="item-list">
-                    <li>
-                        <span class="item-name">The Bapyburger</span>
-                        <span class="item-desc">Double patty, secret capybara sauce</span>
-                    </li>
-                    <li>
-                        <span class="item-name">Chicken Yuzu Nuggets</span>
-                        <span class="item-desc">Citrus glazed, crispy coating</span>
-                    </li>
-                    <li>
-                        <span class="item-name">Mushroom Swiss Melt</span>
-                        <span class="item-desc">For the foraging friends</span>
-                    </li>
-                </ul>
-            </div>
-
-            <div class="category">
-                <h3>Sides</h3>
-                <ul class="item-list">
-                    <li>
-                        <span class="item-name">Lotus Root Chips</span>
-                        <span class="item-desc">Lightly salted & cronchy</span>
-                    </li>
-                    <li>
-                        <span class="item-name">Onsen Egg Salad</span>
-                        <span class="item-desc">Creamy, dreamy, soft-boiled</span>
-                    </li>
-                    <li>
-                        <span class="item-name">Edamame Popcorn</span>
-                        <span class="item-desc">Spicy garlic seasoning</span>
-                    </li>
-                </ul>
-            </div>
-
-            <div class="category">
-                <h3>Drinks</h3>
-                <ul class="item-list">
-                    <li>
-                        <span class="item-name">Yuzu Sparkling</span>
-                        <span class="item-desc">Refreshing citrus bubbles</span>
-                    </li>
-                    <li>
-                        <span class="item-name">Matcha Latte</span>
-                        <span class="item-desc">Iced or hot, oat milk option</span>
-                    </li>
-                    <li>
-                        <span class="item-name">Watermelon Splash</span>
-                        <span class="item-desc">Fresh juice, mint garnish</span>
-                    </li>
-                </ul>
-            </div>
+            <MenuCarousel client:visible title="Mains" items={mains} />
+            <MenuCarousel client:visible title="Sides" items={sides} />
+            <MenuCarousel client:visible title="Drinks" items={drinks} />
         </div>
     </div>
 </section>
@@ -99,59 +68,6 @@
         grid-template-columns: repeat(3, 1fr);
         gap: 2rem;
         width: 100%;
-    }
-
-    .category {
-        background: rgba(255, 255, 255, 0.03);
-        border: 1px solid rgba(255, 255, 255, 0.05);
-        border-radius: 16px;
-        padding: 2rem;
-        transition: transform 0.3s ease, background 0.3s ease;
-    }
-
-    .category:hover {
-        transform: translateY(-5px);
-        background: rgba(255, 255, 255, 0.05);
-    }
-
-    h3 {
-        font-family: var(--font-heading);
-        font-size: 1.5rem;
-        margin-bottom: 2rem;
-        color: #ffffff;
-        text-align: center;
-        text-transform: uppercase;
-        letter-spacing: 0.05em;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        padding-bottom: 1rem;
-    }
-
-    .item-list {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-        display: flex;
-        flex-direction: column;
-        gap: 1.5rem;
-    }
-
-    .item-list li {
-        display: flex;
-        flex-direction: column;
-        gap: 0.25rem;
-    }
-
-    .item-name {
-        font-family: var(--font-heading);
-        font-weight: 600;
-        font-size: 1.1rem;
-        color: #e0e0e0;
-    }
-
-    .item-desc {
-        font-family: var(--font-body);
-        font-size: 0.9rem;
-        color: rgba(255, 255, 255, 0.5);
     }
 
     @media (max-width: 900px) {
